@@ -4,6 +4,8 @@ Open-source Hyperliquid wallet intelligence.
 
 HypeLens is a read-only wallet analyzer for public Hyperliquid addresses. Enter an address and get a report for recent fills, visible fees, open orders, positions, and behavior signals.
 
+**Primary use case:** Hyperliquid wallet analyzer for traders, researchers, and builders.
+
 ## Why This Exists
 
 Hyperliquid exposes useful public API data, but builders and traders still need a clean reference app that turns those responses into a practical report. HypeLens is designed to be useful as a public tool and as example code for Hyperliquid API integrations.
@@ -16,6 +18,8 @@ Hyperliquid exposes useful public API data, but builders and traders still need 
 - Open order and position overview
 - Behavior flags
 - Shareable `/wallet/[address]` routes
+- SEO guide page at `/how-to-analyze-hyperliquid-wallet`
+- Robots, sitemap, and JSON-LD structured data
 - TypeScript tests with mocked API responses
 
 ## Quick Start
@@ -51,14 +55,28 @@ npm run typecheck
 npm run build
 ```
 
+`npm run typecheck` runs `next typegen` before `tsc` so clean clones do not need a prior build.
+
 ## Project Map
 
 - `src/lib/hyperliquid`: Hyperliquid Info endpoint client and raw API types.
 - `src/lib/analytics`: wallet report metrics and behavior flags.
 - `src/lib/wallet-service.ts`: cached orchestration for report generation.
+- `src/lib/seo`: schema.org JSON-LD builders for search and AI answer extraction.
 - `src/components`: search and report UI components.
 - `src/app/api/wallet/[address]`: public JSON wallet report endpoint.
 - `src/app/wallet/[address]`: shareable wallet report page.
+- `src/app/how-to-analyze-hyperliquid-wallet`: indexable guide page.
+
+## Discovery Targets
+
+HypeLens is built to be discoverable for:
+
+- Hyperliquid wallet analyzer
+- Hyperliquid wallet tracker
+- Hyperliquid trading analytics
+- open-source Hyperliquid API example
+- crypto wallet analyzer
 
 ## Safety
 
