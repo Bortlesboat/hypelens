@@ -1,5 +1,8 @@
 # HypeLens
 
+[![CI](https://github.com/Bortlesboat/hypelens/actions/workflows/ci.yml/badge.svg)](https://github.com/Bortlesboat/hypelens/actions/workflows/ci.yml)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Bortlesboat/hypelens&env=NEXT_PUBLIC_SITE_URL,HYPERLIQUID_INFO_URL,HYPELENS_CACHE_TTL_MS&envDescription=Optional%20HypeLens%20configuration)
+
 Open-source Hyperliquid wallet intelligence.
 
 HypeLens is a read-only wallet analyzer for public Hyperliquid addresses. Enter an address and get a report for recent fills, visible fees, open orders, positions, and behavior signals.
