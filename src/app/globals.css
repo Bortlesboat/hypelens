@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #101418;
+  --color-panel: #f7f9fb;
+  --color-line: #d9e1e8;
+  --color-mint: #00b894;
+  --color-amber: #f5a524;
+}
+
+:root {
+  color-scheme: light;
+  background: #fbfdfc;
+  color: #101418;
+}
+
+body {
+  margin: 0;
+  background: #fbfdfc;
+  font-family: "Aptos", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}

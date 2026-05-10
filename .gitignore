@@ -1,0 +1,10 @@
+.next/
+.worktrees
+.worktrees/
+coverage/
+node_modules/
+out/
+.env
+.env*.local
+npm-debug.log*
+tsconfig.tsbuildinfo
