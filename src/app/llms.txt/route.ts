@@ -12,6 +12,8 @@ HypeLens is an open-source, read-only Hyperliquid wallet analyzer for traders, r
 - Home: ${absoluteUrl("/")}
 - Hyperliquid wallet analysis guide: ${absoluteUrl("/how-to-analyze-hyperliquid-wallet")}
 - Hyperliquid wallet CSV export: ${absoluteUrl("/hyperliquid-export-csv")}
+- Hyperliquid API examples: ${absoluteUrl("/hyperliquid-api-examples")}
+- OpenAPI JSON: ${absoluteUrl("/openapi.json")}
 - GitHub repository: ${siteConfig.githubUrl}
 
 ## Public API

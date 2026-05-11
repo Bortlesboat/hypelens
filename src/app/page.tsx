@@ -21,6 +21,9 @@ export default function HomePage() {
         <a className="w-fit text-sm font-medium text-ink underline" href="/hyperliquid-export-csv">
           Explore CSV export
         </a>
+        <a className="w-fit text-sm font-medium text-ink underline" href="/hyperliquid-api-examples">
+          View API examples
+        </a>
       </div>
     </main>
   );

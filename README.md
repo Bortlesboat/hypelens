@@ -26,8 +26,10 @@ Hyperliquid exposes useful public API data, but builders and traders still need 
 - Partial-data warnings when non-critical Hyperliquid endpoints are unavailable
 - Shareable `/wallet/[address]` routes
 - AI-readable `llms.txt`
+- OpenAPI document at `/openapi.json`
 - SEO guide page at `/how-to-analyze-hyperliquid-wallet`
 - CSV export guide page at `/hyperliquid-export-csv`
+- API examples page at `/hyperliquid-api-examples`
 - Robots, sitemap, and JSON-LD structured data
 - TypeScript tests with mocked API responses
 
@@ -78,6 +80,8 @@ npm run build
 - `src/app/wallet/[address]`: shareable wallet report page.
 - `src/app/how-to-analyze-hyperliquid-wallet`: indexable guide page.
 - `src/app/hyperliquid-export-csv`: indexable CSV export guide page.
+- `src/app/hyperliquid-api-examples`: indexable API examples page.
+- `src/app/openapi.json`: public OpenAPI document route.
 
 ## Discovery Targets
 

@@ -9,7 +9,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 describe("HomePage", () => {
-  it("links to the wallet analysis and CSV export guides", () => {
+  it("links to the wallet analysis, CSV export, and API examples guides", () => {
     render(<HomePage />);
 
     expect(screen.getByRole("link", { name: "Read the wallet analysis guide" })).toHaveAttribute(
@@ -17,5 +17,6 @@ describe("HomePage", () => {
       "/how-to-analyze-hyperliquid-wallet"
     );
     expect(screen.getByRole("link", { name: "Explore CSV export" })).toHaveAttribute("href", "/hyperliquid-export-csv");
+    expect(screen.getByRole("link", { name: "View API examples" })).toHaveAttribute("href", "/hyperliquid-api-examples");
   });
 });

@@ -22,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.75
+    },
+    {
+      url: absoluteUrl("/hyperliquid-api-examples"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.75
     }
   ];
 }
