@@ -1,6 +1,8 @@
 import { ActivityTable } from "./activity-table";
+import { DataWarnings } from "./data-warnings";
 import { FlagsList } from "./flags-list";
 import { MetricCard } from "./metric-card";
+import { TopMarkets } from "./top-markets";
 import { formatShortAddress } from "@/lib/address";
 import { formatCurrency, formatNumber } from "@/lib/formatting";
 import type { WalletReport } from "@/lib/hyperliquid/types";
@@ -18,6 +20,8 @@ export function WalletReportView({ report }: { report: WalletReport }) {
           Open Hyperliquid
         </a>
       </div>
+
+      <DataWarnings warnings={report.dataWarnings} />
 
       <section className="mt-8 grid gap-4 md:grid-cols-4">
         <MetricCard label="Account value" value={formatCurrency(report.accountValueUsd)} />
@@ -37,6 +41,11 @@ export function WalletReportView({ report }: { report: WalletReport }) {
           <h2 className="text-xl font-semibold text-ink">Behavior signals</h2>
           <div className="mt-4">
             <FlagsList flags={report.flags} />
+          </div>
+
+          <h2 className="mt-8 text-xl font-semibold text-ink">Top markets</h2>
+          <div className="mt-4">
+            <TopMarkets markets={report.topMarkets} />
           </div>
         </aside>
       </section>

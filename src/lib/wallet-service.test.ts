@@ -33,4 +33,30 @@ describe("getWalletReport", () => {
     );
     expect(info).not.toHaveBeenCalled();
   });
+
+  it("returns a partial report when a non-critical Hyperliquid endpoint fails", async () => {
+    const info = vi
+      .fn()
+      .mockResolvedValueOnce(sampleWalletData.mids)
+      .mockResolvedValueOnce(sampleWalletData.clearinghouseState)
+      .mockResolvedValueOnce(sampleWalletData.openOrders)
+      .mockResolvedValueOnce(sampleWalletData.fills)
+      .mockResolvedValueOnce(sampleWalletData.historicalOrders)
+      .mockResolvedValueOnce(sampleWalletData.portfolio)
+      .mockRejectedValueOnce(new Error("rate limited"));
+
+    const report = await getWalletReport(sampleAddress, {
+      client: { info },
+      now: new Date("2026-05-10T12:00:00Z"),
+      cache: null
+    });
+
+    expect(report.totalVolumeUsd).toBe(12970);
+    expect(report.dataWarnings).toEqual([
+      {
+        source: "userFees",
+        message: "Hyperliquid userFees data was unavailable, so this report may be partial."
+      }
+    ]);
+  });
 });

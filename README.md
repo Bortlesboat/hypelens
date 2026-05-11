@@ -19,7 +19,9 @@ Hyperliquid exposes useful public API data, but builders and traders still need 
 - Hyperliquid Info endpoint adapter
 - Recent fills and fee summary
 - Open order and position overview
+- Top-market concentration panel
 - Behavior flags
+- Partial-data warnings when non-critical Hyperliquid endpoints are unavailable
 - Shareable `/wallet/[address]` routes
 - SEO guide page at `/how-to-analyze-hyperliquid-wallet`
 - Robots, sitemap, and JSON-LD structured data

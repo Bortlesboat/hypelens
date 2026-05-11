@@ -53,6 +53,12 @@ export type RawWalletData = {
   historicalOrders: unknown[];
   portfolio: unknown;
   fees: unknown;
+  dataWarnings?: DataWarning[];
+};
+
+export type DataWarning = {
+  source: string;
+  message: string;
 };
 
 export type WalletFlag = {
@@ -90,4 +96,5 @@ export type WalletReport = {
     timestamp: number | null;
   }>;
   flags: WalletFlag[];
+  dataWarnings: DataWarning[];
 };

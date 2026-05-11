@@ -90,6 +90,7 @@ export function buildWalletReport(address: string, raw: RawWalletData, now = new
 
   return {
     ...reportWithoutFlags,
-    flags: deriveWalletFlags(reportWithoutFlags)
+    flags: deriveWalletFlags(reportWithoutFlags),
+    dataWarnings: raw.dataWarnings ?? []
   };
 }
