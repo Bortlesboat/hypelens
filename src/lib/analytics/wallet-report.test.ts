@@ -14,5 +14,47 @@ describe("buildWalletReport", () => {
     expect(report.topMarkets[0]).toEqual({ coin: "BTC", volumeUsd: 7970, fillCount: 2, share: 0.6145 });
     expect(report.positions[0].coin).toBe("BTC");
     expect(report.flags.map((flag) => flag.kind)).toContain("concentration");
+    expect(report.dataCompleteness).toEqual({
+      score: 100,
+      availableSources: [
+        "allMids",
+        "clearinghouseState",
+        "frontendOpenOrders",
+        "userFills",
+        "historicalOrders",
+        "portfolio",
+        "userFees"
+      ],
+      missingSources: []
+    });
+  });
+
+  it("scores partial Hyperliquid reports from endpoint warnings", () => {
+    const report = buildWalletReport(
+      sampleAddress,
+      {
+        ...sampleWalletData,
+        dataWarnings: [
+          {
+            source: "userFees",
+            message: "Hyperliquid userFees data was unavailable, so this report may be partial."
+          }
+        ]
+      },
+      new Date("2026-05-10T12:00:00Z")
+    );
+
+    expect(report.dataCompleteness).toEqual({
+      score: 86,
+      availableSources: [
+        "allMids",
+        "clearinghouseState",
+        "frontendOpenOrders",
+        "userFills",
+        "historicalOrders",
+        "portfolio"
+      ],
+      missingSources: ["userFees"]
+    });
   });
 });

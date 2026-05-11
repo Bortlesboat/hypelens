@@ -61,6 +61,12 @@ export type DataWarning = {
   message: string;
 };
 
+export type DataCompleteness = {
+  score: number;
+  availableSources: string[];
+  missingSources: string[];
+};
+
 export type WalletFlag = {
   kind: "concentration" | "open-orders" | "inactive" | "active" | "empty";
   label: string;
@@ -97,4 +103,5 @@ export type WalletReport = {
   }>;
   flags: WalletFlag[];
   dataWarnings: DataWarning[];
+  dataCompleteness: DataCompleteness;
 };

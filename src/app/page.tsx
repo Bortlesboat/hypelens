@@ -14,9 +14,14 @@ export default function HomePage() {
         Analyze public Hyperliquid addresses with a read-only report for activity, fees, positions, and behavior signals.
       </p>
       <AddressSearch />
-      <a className="mt-6 w-fit text-sm font-medium text-ink underline" href="/how-to-analyze-hyperliquid-wallet">
-        Read the wallet analysis guide
-      </a>
+      <div className="mt-6 flex flex-wrap gap-4">
+        <a className="w-fit text-sm font-medium text-ink underline" href="/how-to-analyze-hyperliquid-wallet">
+          Read the wallet analysis guide
+        </a>
+        <a className="w-fit text-sm font-medium text-ink underline" href="/hyperliquid-export-csv">
+          Explore CSV export
+        </a>
+      </div>
     </main>
   );
 }

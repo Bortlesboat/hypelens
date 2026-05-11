@@ -7,5 +7,9 @@ export const siteConfig = {
 };
 
 export function absoluteUrl(path = "/"): string {
-  return new URL(path, siteConfig.url).toString();
+  const base = new URL(siteConfig.url);
+  const basePath = base.pathname === "/" ? "" : base.pathname.replace(/\/$/, "");
+  const nextPath = path.startsWith("/") ? path : `/${path}`;
+
+  return new URL(`${basePath}${nextPath}`, base.origin).toString();
 }

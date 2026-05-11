@@ -18,12 +18,16 @@ Hyperliquid exposes useful public API data, but builders and traders still need 
 - Read-only wallet reports
 - Hyperliquid Info endpoint adapter
 - Recent fills and fee summary
+- CSV export endpoint for visible wallet activity
 - Open order and position overview
 - Top-market concentration panel
 - Behavior flags
+- Data-completeness score
 - Partial-data warnings when non-critical Hyperliquid endpoints are unavailable
 - Shareable `/wallet/[address]` routes
+- AI-readable `llms.txt`
 - SEO guide page at `/how-to-analyze-hyperliquid-wallet`
+- CSV export guide page at `/hyperliquid-export-csv`
 - Robots, sitemap, and JSON-LD structured data
 - TypeScript tests with mocked API responses
 
@@ -70,8 +74,10 @@ npm run build
 - `src/lib/seo`: schema.org JSON-LD builders for search and AI answer extraction.
 - `src/components`: search and report UI components.
 - `src/app/api/wallet/[address]`: public JSON wallet report endpoint.
+- `src/app/api/wallet/[address]/export`: public CSV wallet report endpoint.
 - `src/app/wallet/[address]`: shareable wallet report page.
 - `src/app/how-to-analyze-hyperliquid-wallet`: indexable guide page.
+- `src/app/hyperliquid-export-csv`: indexable CSV export guide page.
 
 ## Discovery Targets
 

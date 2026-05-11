@@ -16,9 +16,22 @@ export function WalletReportView({ report }: { report: WalletReport }) {
           <h1 className="text-4xl font-semibold text-ink">{formatShortAddress(report.address)}</h1>
           <p className="mt-2 text-sm text-slate-500">Generated {new Date(report.generatedAt).toLocaleString()}</p>
         </div>
-        <a className="text-sm font-medium text-ink underline" href="https://app.hyperliquid.xyz/" target="_blank" rel="noreferrer">
-          Open Hyperliquid
-        </a>
+        <div className="flex flex-col items-start gap-2 md:items-end">
+          <p className="text-sm text-slate-500">{report.dataCompleteness.score}% data completeness</p>
+          <div className="flex flex-wrap gap-3">
+            <a className="text-sm font-medium text-ink underline" href={`/api/wallet/${report.address}/export`}>
+              Download CSV
+            </a>
+            <a
+              className="text-sm font-medium text-ink underline"
+              href="https://app.hyperliquid.xyz/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Hyperliquid
+            </a>
+          </div>
+        </div>
       </div>
 
       <DataWarnings warnings={report.dataWarnings} />

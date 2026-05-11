@@ -1,6 +1,16 @@
 import { deriveWalletFlags } from "./flags";
 import type { RawWalletData, WalletReport } from "@/lib/hyperliquid/types";
 
+const expectedSources = [
+  "allMids",
+  "clearinghouseState",
+  "frontendOpenOrders",
+  "userFills",
+  "historicalOrders",
+  "portfolio",
+  "userFees"
+];
+
 function toNumber(value: string | number | null | undefined): number | null {
   if (value === null || value === undefined || value === "") return null;
   const parsed = Number(value);
@@ -13,6 +23,15 @@ function round(value: number, decimals = 2): number {
 }
 
 export function buildWalletReport(address: string, raw: RawWalletData, now = new Date()): WalletReport {
+  const dataWarnings = raw.dataWarnings ?? [];
+  const missingSources = dataWarnings.map((warning) => warning.source);
+  const availableSources = expectedSources.filter((source) => !missingSources.includes(source));
+  const dataCompleteness = {
+    score: Math.round((availableSources.length / expectedSources.length) * 100),
+    availableSources,
+    missingSources
+  };
+
   const recentFills = raw.fills.map((fill) => {
     const price = toNumber(fill.px);
     const size = toNumber(fill.sz);
@@ -91,6 +110,7 @@ export function buildWalletReport(address: string, raw: RawWalletData, now = new
   return {
     ...reportWithoutFlags,
     flags: deriveWalletFlags(reportWithoutFlags),
-    dataWarnings: raw.dataWarnings ?? []
+    dataWarnings,
+    dataCompleteness
   };
 }

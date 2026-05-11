@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-05-10");
+  const lastModified = new Date("2026-05-11");
 
   return [
     {
@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8
+    },
+    {
+      url: absoluteUrl("/hyperliquid-export-csv"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.75
     }
   ];
 }
